@@ -1,114 +1,135 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dilmurod Badalov — Director of Sales</title>
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #e0f7ff, #b3e5fc);
-      color: #222;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
-      overflow: hidden;
-    }
-
-    .card {
-      background: white;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-      max-width: 360px;
-      animation: fadeIn 1.5s ease;
-    }
-
-    .profile-img {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 15px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.2);
-      border: 4px solid #b3e5fc;
-    }
-
-    h1 {
-      font-size: 1.6em;
-      margin: 10px 0 5px;
-    }
-
-    h2 {
-      font-size: 1.1em;
-      color: #0078b5;
-      margin-bottom: 20px;
-    }
-
-    .contacts a {
-      display: block;
-      text-decoration: none;
-      color: white;
-      background: #0078b5;
-      padding: 10px 15px;
-      border-radius: 10px;
-      margin: 6px 0;
-      transition: background 0.3s, transform 0.3s;
-    }
-
-    .contacts a:hover {
-      background: #015d8e;
-      transform: scale(1.05);
-    }
-
-    .wechat-qr {
-      margin-top: 15px;
-    }
-
-    .wechat-qr img {
-      width: 160px;
-      border-radius: 12px;
-      border: 2px solid #ddd;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .logo {
-      width: 150px;
-      margin-top: 25px;
-      opacity: 0.9;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(25px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Dilmurod Badalov — Визитка</title>
+<style>
+  :root{
+    --accent:#0ea5e9; --accent2:#0369a1; --muted:#64748b; --card-radius:18px;
+    font-family: "Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  }
+  html,body{height:100%;margin:0;}
+  body{
+    display:flex;align-items:center;justify-content:center;
+    background: linear-gradient(135deg,#dbeafe,#e0f2fe,#f0f9ff);
+    background-size:400% 400%; animation:bgMove 12s ease infinite;
+    padding:20px;color:#0f172a;
+  }
+  @keyframes bgMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+  .card{
+    width:100%;max-width:460px;background:rgba(255,255,255,0.96);
+    border-radius:var(--card-radius);box-shadow:0 12px 30px rgba(8,20,40,0.08);
+    padding:36px 30px;text-align:center;position:relative;backdrop-filter:blur(6px);
+    animation:cardIn .6s cubic-bezier(.2,.9,.3,1);
+  }
+  @keyframes cardIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  .avatar{width:140px;height:140px;border-radius:50%;overflow:hidden;margin:0 auto 14px;border:6px solid rgba(255,255,255,0.8);box-shadow:0 8px 26px rgba(14,165,233,0.18);transition:transform .28s ease;}
+  .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+  .card:hover .avatar{transform:translateY(-4px) scale(1.02)}
+  .name{font-size:22px;font-weight:700;margin:6px 0 4px}
+  .role{color:var(--muted);font-size:14px;margin-bottom:18px}
+  .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:6px}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:600;transition:transform .18s ease,box-shadow .18s ease}
+  .btn:active{transform:translateY(1px)}
+  .btn.call{background:linear-gradient(180deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 8px 20px rgba(14,165,233,0.18)}
+  .btn.call:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(14,165,233,0.22)}
+  .btn.wa{background:#25D366;color:#fff;box-shadow:0 8px 20px rgba(37,211,102,0.12)}
+  .btn.wa:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(37,211,102,0.16)}
+  .btn.tg{background:#2AABEE;color:#fff}
+  .btn.tg:hover{transform:translateY(-4px)}
+  .btn.wechat{background:#f3f4f6;color:#0f172a;border:1px solid rgba(15,23,42,0.06);cursor:pointer}
+  .meta{margin-top:14px;color:var(--muted);font-size:13px}
+  .wechat-block{margin-top:14px}
+  .wechat-block p{margin:0 0 8px;color:var(--muted);font-size:14px}
+  .wechat-block img{width:160px;height:160px;object-fit:cover;border-radius:12px;border:2px solid #e6eef8;box-shadow:0 8px 18px rgba(0,0,0,0.08);cursor:pointer;transition:transform .18s}
+  .wechat-block img:hover{transform:scale(1.02)}
+  footer{margin-top:20px;display:flex;flex-direction:column;align-items:center;gap:8px}
+  footer img{width:150px;height:auto;display:block;opacity:.95}
+  footer .brand{color:var(--muted);font-size:13px}
+  /* modal */
+  .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:9999}
+  .modal.open{display:flex}
+  .modal .inner{background:#fff;padding:18px;border-radius:12px;max-width:92%;max-height:92%;box-shadow:0 20px 60px rgba(2,6,23,0.6);display:flex;flex-direction:column;align-items:center}
+  .modal img{max-width:480px;width:100%;height:auto;border-radius:10px}
+  .modal .close{margin-top:12px;background:#111;color:#fff;padding:8px 12px;border-radius:8px;text-decoration:none}
+  @media(max-width:420px){
+    .avatar{width:120px;height:120px}
+    .wechat-block img{width:140px;height:140px}
+    footer img{width:130px}
+    .card{padding:26px 18px}
+  }
+</style>
 </head>
 <body>
-
-  <div class="card">
-    <img src="photo_2025-10-20_15-57-05.jpg" alt="Dilmurod Badalov" class="profile-img">
-    <h1>Dilmurod Badalov</h1>
-    <h2>Директор по продажам</h2>
-
-    <div class="contacts">
-      <a href="tel:+998903980010">📞 +998 90 398 00 10</a>
-      <a href="https://t.me/+998903980010">💬 Telegram</a>
-      <a href="https://wa.me/998903980010">💚 WhatsApp</a>
+  <main class="card" role="main" aria-label="Визитка Dilmurod Badalov">
+    <div class="avatar" aria-hidden="true">
+      <img src="photo_2025-10-20_15-57-05.jpg" alt="Фото Dilmurod Badalov">
     </div>
 
-    <div class="wechat-qr">
-      <p>📱 WeChat QR-код:</p>
-      <img src="photo_2025-10-20_16-19-38.jpg" alt="WeChat QR Code">
+    <div class="name">Dilmurod Badalov</div>
+    <div class="role">Директор по продажам — Starwood Nazarbek</div>
+
+    <div class="btns" role="group" aria-label="Контакты">
+      <a class="btn call" href="tel:+998903980010" aria-label="Позвонить">📞 Позвонить</a>
+
+      <!-- WhatsApp -->
+      <a class="btn wa" href="https://wa.me/998903980010" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">💬 WhatsApp</a>
+
+      <!-- Telegram (номер) -->
+      <a class="btn tg" href="https://t.me/+998903980010" target="_blank" rel="noopener noreferrer" aria-label="Telegram">✈️ Telegram</a>
+
+      <!-- WeChat open modal -->
+      <button class="btn wechat" id="openWechat" aria-label="WeChat QR">🟢 WeChat</button>
     </div>
 
-    <img src="photo_2021-12-30_23-39-44.jpg" alt="Starwood Logo" class="logo">
+    <div class="meta">Тел.: +998 90 398 0010</div>
+
+    <div class="wechat-block" aria-hidden="false">
+      <p>📱 WeChat QR-код (нажмите для увеличения)</p>
+      <img id="wechatImg" src="photo_2025-10-20_16-19-38.jpg" alt="WeChat QR">
+    </div>
+
+    <footer>
+      <div class="brand">Starwood Nazarbek</div>
+      <img src="photo_2021-12-30_23-39-44.jpg" alt="Starwood Logo">
+    </footer>
+  </main>
+
+  <!-- modal -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="inner" role="document">
+      <img id="modalImg" src="" alt="WeChat QR large">
+      <a href="#" id="closeBtn" class="close">Закрыть</a>
+    </div>
   </div>
 
+<script>
+  // Open modal on click (WeChat QR)
+  const openBtn = document.getElementById('openWechat');
+  const wechatImg = document.getElementById('wechatImg');
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modalImg');
+  const closeBtn = document.getElementById('closeBtn');
+
+  function openModal(src){
+    modalImg.src = src;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+  }
+  function closeModal(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    modalImg.src = '';
+  }
+
+  openBtn.addEventListener('click', ()=> openModal(wechatImg.src));
+  wechatImg.addEventListener('click', ()=> openModal(wechatImg.src));
+  closeBtn.addEventListener('click', (e)=>{ e.preventDefault(); closeModal(); });
+  modal.addEventListener('click', (e)=>{ if(e.target===modal) closeModal(); });
+
+  // Accessibility: ESC to close
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
+</script>
 </body>
 </html>
