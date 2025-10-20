@@ -1,99 +1,235 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dilmurod Badalov – Директор по продажам</title>
-  <style>
-    body {
-      font-family: "Poppins", sans-serif;
-      background: linear-gradient(180deg, #e3f2fd, #ffffff);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      animation: fadeIn 1.5s ease-in;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .card {
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      padding: 30px;
-      max-width: 380px;
-      text-align: center;
-      transition: transform 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .photo {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 15px;
-      border: 3px solid #90caf9;
-    }
-    h1 {
-      font-size: 24px;
-      margin: 10px 0 5px;
-      color: #1565c0;
-    }
-    h2 {
-      font-size: 16px;
-      color: #444;
-      font-weight: 500;
-      margin-bottom: 25px;
-    }
-    .btns {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    a.btn {
-      display: block;
-      text-decoration: none;
-      padding: 10px 0;
-      border-radius: 10px;
-      color: white;
-      font-weight: 600;
-      transition: all 0.3s;
-    }
-    .call { background: #1565c0; }
-    .whatsapp { background: #25d366; }
-    .telegram { background: #0088cc; }
-    .wechat { background: #09b83e; }
-    a.btn:hover { transform: scale(1.03); opacity: 0.9; }
-    footer {
-      margin-top: 25px;
-      text-align: center;
-    }
-    footer img {
-      width: 100px;
-      opacity: 0.8;
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Dilmurod Badalov — Директор по продажам</title>
+<meta name="theme-color" content="#dbeafe"/>
+<style>
+  :root{
+    --bg1:#dbeafe; --bg2:#e0f6ff; --bg3:#ffffff;
+    --accent:#0ea5e9; --accent2:#0369a1; --muted:#64748b;
+    --green-wa:#25D366; --tg:#0088cc; --wechat:#09b83e;
+    --card-radius:18px; --shadow: 0 12px 30px rgba(8,20,40,0.08);
+    --maxw:480px;
+    font-family: Inter, "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  }
+
+  /* Page bg */
+  html,body{height:100%;margin:0}
+  body{
+    display:flex;align-items:center;justify-content:center;
+    padding:28px;background:linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));
+    background-size:400% 400%; animation:gradMove 12s ease infinite;
+    color:#0f172a;
+  }
+  @keyframes gradMove{
+    0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}
+  }
+
+  /* Card */
+  .card{
+    width:100%; max-width:var(--maxw); background:rgba(255,255,255,0.96);
+    border-radius:var(--card-radius); box-shadow:var(--shadow); padding:34px;
+    text-align:center; position:relative; overflow:hidden; backdrop-filter: blur(6px);
+    transform-origin:center; animation:cardIn .6s cubic-bezier(.2,.9,.3,1);
+  }
+  @keyframes cardIn{from{opacity:0;transform:translateY(16px) scale(.995)}to{opacity:1;transform:none}}
+
+  /* Avatar */
+  .avatar{
+    width:140px;height:140px;border-radius:50%; overflow:hidden; margin:0 auto 14px;
+    border:6px solid rgba(255,255,255,0.86); box-shadow:0 8px 28px rgba(14,165,233,0.16);
+    transition:transform .28s ease, box-shadow .28s ease;
+  }
+  .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+  .card:hover .avatar{transform:translateY(-6px) scale(1.02); box-shadow:0 18px 44px rgba(14,165,233,0.22)}
+
+  /* Text */
+  .name{font-size:22px;font-weight:700;margin:8px 0 4px;color:var(--accent2)}
+  .role{font-size:14px;color:var(--muted);margin-bottom:18px}
+
+  /* Buttons */
+  .btns{display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;
+    color:#fff;font-weight:700;text-decoration:none;font-size:15px;min-width:220px;justify-content:center;
+    box-shadow:0 8px 20px rgba(2,6,23,0.06); transition:transform .16s ease,box-shadow .16s ease,opacity .12s;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn--call{background:linear-gradient(180deg,var(--accent),var(--accent2))}
+  .btn--wa{background:var(--green-wa)}
+  .btn--tg{background:var(--tg)}
+  .btn--wechat{background:var(--wechat)}
+  .btn:hover{transform:translateY(-4px);opacity:0.98}
+
+  /* Icon box */
+  .ico{width:18px;height:18px;display:inline-block;flex-shrink:0}
+
+  /* meta */
+  .meta{margin-top:12px;color:var(--muted);font-size:13px}
+
+  /* Footer */
+  footer{margin-top:22px;display:flex;flex-direction:column;align-items:center;gap:8px}
+  footer .brand{color:var(--muted);font-size:13px}
+  footer img{width:150px;height:auto;opacity:.95;display:block}
+
+  /* Modal for WeChat fallback */
+  .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:9999}
+  .modal.open{display:flex}
+  .modal .box{background:#fff;padding:18px;border-radius:12px;max-width:92%;width:420px;box-shadow:0 20px 60px rgba(2,6,23,0.6)}
+  .modal h3{margin:0 0 8px;font-size:18px}
+  .modal p{margin:0 0 14px;color:var(--muted)}
+  .modal .row{display:flex;gap:8px;align-items:center;justify-content:space-between}
+  .copyBtn,.closeBtn{background:var(--accent);color:#fff;padding:8px 12px;border-radius:8px;text-decoration:none;cursor:pointer;font-weight:700}
+  .closeBtn{background:#111}
+  .idBox{font-family:monospace;background:#f7fafc;padding:8px 10px;border-radius:8px;color:#0f172a}
+
+  /* Responsive */
+  @media (max-width:460px){
+    .btn{min-width:unset;width:100%;padding:12px;font-size:15px}
+    .avatar{width:120px;height:120px}
+    footer img{width:130px}
+    .modal .box{width:94%}
+  }
+</style>
 </head>
 <body>
-  <div class="card">
-    <img src="photo_2025-10-20_15-57-05.jpg" alt="Dilmurod Badalov" class="photo" />
-    <h1>Dilmurod Badalov</h1>
-    <h2>Директор по продажам</h2>
-    <div class="btns">
-      <a href="tel:+998903980010" class="btn call">📞 Позвонить</a>
-      <a href="https://wa.me/998903980010" class="btn whatsapp">💬 WhatsApp</a>
-      <a href="https://t.me/+998903980010" class="btn telegram">✈️ Telegram</a>
-      <a href="weixin://dl/chat?wxid_zl3118cfqdgp12" class="btn wechat">🟢 WeChat</a>
+
+  <main class="card" role="main" aria-label="Визитка Dilmurod Badalov">
+    <div class="avatar" aria-hidden="true">
+      <img src="photo_2025-10-20_15-57-05.jpg" alt="Фото Dilmurod Badalov">
+    </div>
+
+    <div class="name">Dilmurod Badalov</div>
+    <div class="role">Директор по продажам — Starwood Nazarbek</div>
+
+    <div class="btns" role="group" aria-label="Контакты">
+      <!-- Call -->
+      <a class="btn btn--call" href="tel:+998903980010" aria-label="Позвонить">
+        <span class="ico" aria-hidden="true">
+          <!-- phone svg -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 16.5V21a1 1 0 0 1-1.09 1 20.89 20.89 0 0 1-8.63-2.63A20.08 20.08 0 0 1 3.63 11.09 20.89 20.89 0 0 1 1 2.46 1 1 0 0 1 2 1.5h4.5a1 1 0 0 1 1 .79c.12.9.38 2.13.79 3.44a1 1 0 0 1-.24 1L7.7 8.7a15.05 15.05 0 0 0 6.6 6.6l1.97-1.86a1 1 0 0 1 1 .04c1.32.71 2.56 1.07 3.47 1.18a1 1 0 0 1 .79 1z" fill="#fff"/></svg>
+        </span>
+        <span>📞 Позвонить</span>
+      </a>
+
+      <!-- WhatsApp -->
+      <a class="btn btn--wa" href="https://wa.me/998903980010" target="_blank" rel="noopener noreferrer" aria-label="Написать в WhatsApp">
+        <span class="ico" aria-hidden="true">
+          <!-- wa svg -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.52 3.48A11.94 11.94 0 0 0 12 0C5.373 0 0 5.373 0 12a11.9 11.9 0 0 0 2.06 6.33L0 24l5.85-2.05A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12 0-3.2-1.25-6.21-3.48-8.52zM12 21.6c-1.6 0-3.16-.42-4.52-1.22l-.32-.19-3.48 1.22 1.22-3.36-.2-.34A8.4 8.4 0 1 1 20.4 12 8.39 8.39 0 0 1 12 21.6z" fill="#fff"/></svg>
+        </span>
+        <span>WhatsApp</span>
+      </a>
+
+      <!-- Telegram -->
+      <a class="btn btn--tg" href="https://t.me/+998903980010" target="_blank" rel="noopener noreferrer" aria-label="Написать в Telegram">
+        <span class="ico" aria-hidden="true">
+          <!-- tg svg -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12c0 6.627 5.373 12 12 12s12-5.373 12-12C24 5.373 18.627 0 12 0zm5.09 8.05l-1.4 6.6c-.11.52-.4.65-.82.4l-2.27-1.67-1.09 1.05c-.12.12-.22.22-.45.22l.16-2.33 4.24-3.83c.18-.16-.04-.25-.27-.09L8.4 12.03 5.12 10.5c-.5-.18-.51-.5.11-.73L17.3 7.1c.43-.13.8.1.8.95z" fill="#fff"/></svg>
+        </span>
+        <span>Telegram</span>
+      </a>
+
+      <!-- WeChat: attempt open, fallback modal -->
+      <button class="btn btn--wechat" id="wechatBtn" aria-label="Открыть WeChat">
+        <span class="ico" aria-hidden="true">
+          <!-- wechat svg -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 5.91 2 10.5c0 1.98.88 3.78 2.36 5.17L3 21l5.58-1.71A8.55 8.55 0 0 0 12 20c5.52 0 10-3.91 10-8.5S17.52 2 12 2zM7.5 9c.83 0 1.5-.67 1.5-1.5S8.33 6 7.5 6 6 6.67 6 7.5 6.67 9 7.5 9zM13 9c.83 0 1.5-.67 1.5-1.5S13.83 6 13 6s-1.5.67-1.5 1.5S12.17 9 13 9z" fill="#fff"/></svg>
+        </span>
+        <span>WeChat</span>
+      </button>
+    </div>
+
+    <div class="meta">Телефон: <strong>+998 90 398 0010</strong></div>
+
+    <footer>
+      <div class="brand">Starwood Nazarbek</div>
+      <img src="photo_2021-12-30_23-39-44.jpg" alt="Starwood Nazarbek Logo">
+    </footer>
+  </main>
+
+  <!-- Modal for WeChat fallback / show ID -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="box" role="document">
+      <h3>WeChat — открыть чат</h3>
+      <p>Если WeChat установлен, ваш телефон попытается открыть приложение. Если нет — скопируйте WeChat ID ниже и найдите пользователя вручную.</p>
+      <div style="margin:12px 0;display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap">
+        <div class="idBox" id="wechatId">wxid_zl3118cfqdgp12</div>
+        <div style="display:flex;gap:8px">
+          <button class="copyBtn" id="copyId">Скопировать</button>
+          <a class="closeBtn" id="closeModal" href="#">Закрыть</a>
+        </div>
+      </div>
     </div>
   </div>
-  <footer>
-    <img src="photo_2021-12-30_23-39-44.jpg" alt="Company Logo" />
-  </footer>
+
+<script>
+  // WeChat open attempt + fallback
+  (function(){
+    const wechatId = 'wxid_zl3118cfqdgp12';
+    const wechatBtn = document.getElementById('wechatBtn');
+    const modal = document.getElementById('modal');
+    const copyBtn = document.getElementById('copyId');
+    const closeModal = document.getElementById('closeModal');
+    const wechatIdEl = document.getElementById('wechatId');
+
+    // fill id
+    wechatIdEl.textContent = wechatId;
+
+    // Try to open weixin:// scheme. If after timeout page not hidden, show modal.
+    function openWeChat(){
+      const scheme = 'weixin://dl/chat?' + encodeURIComponent(wechatId);
+      // Create an invisible iframe to open scheme (works on some mobile browsers)
+      let opened = false;
+      const timer = setTimeout(() => {
+        if (!opened) showModal();
+      }, 1200);
+
+      // attempt open
+      try {
+        // For iOS/Android modern browsers
+        window.location.href = scheme;
+        opened = true;
+        // no guarantee — show modal if not opened
+        setTimeout(()=>{ if (!document.hidden) { /* maybe failed */ } }, 800);
+      } catch(e) {
+        // fallback: show modal
+        showModal();
+      }
+    }
+
+    function showModal(){
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+    }
+    function hideModal(){
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden','true');
+    }
+
+    wechatBtn.addEventListener('click', (e)=>{ e.preventDefault(); openWeChat(); });
+
+    // Copy button
+    copyBtn.addEventListener('click', async ()=>{
+      try{
+        await navigator.clipboard.writeText(wechatId);
+        copyBtn.textContent = 'Скопировано';
+        setTimeout(()=> copyBtn.textContent = 'Скопировать', 1600);
+      }catch(e){
+        alert('Копирование не поддерживается. Выделите и скопируйте вручную: ' + wechatId);
+      }
+    });
+
+    // close
+    closeModal.addEventListener('click', (e)=>{ e.preventDefault(); hideModal(); });
+    modal.addEventListener('click', (e)=>{ if(e.target === modal) hideModal(); });
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') hideModal(); });
+  })();
+</script>
+
 </body>
 </html>
