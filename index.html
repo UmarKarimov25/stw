@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Dilmurod Badalov — Визитка</title>
+<link rel="icon" href="photo_2021-12-30_23-39-44.jpg" type="image/jpeg">
+<style>
+  :root {
+    --accent: #0ea5e9;
+    --accent2: #0369a1;
+    --text: #0f172a;
+    --muted: #64748b;
+    --radius: 18px;
+    font-family: "Poppins", "Inter", system-ui, sans-serif;
+  }
+
+  html,body{height:100%;margin:0;}
+
+  body {
+    background: linear-gradient(135deg, #dbeafe, #e0f2fe, #f0f9ff);
+    background-size: 400% 400%;
+    animation: gradientMove 10s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    color: var(--text);
+  }
+
+  @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .card {
+    width: 100%;
+    max-width: 460px;
+    background: rgba(255,255,255,0.95);
+    border-radius: var(--radius);
+    box-shadow: 0 12px 30px rgba(8,20,40,0.08);
+    padding: 36px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(6px);
+    animation: appear 700ms cubic-bezier(.2,.9,.3,1);
+  }
+
+  @keyframes appear {
+    from { opacity:0; transform: translateY(20px) scale(.995); }
+    to { opacity:1; transform: translateY(0) scale(1); }
+  }
+
+  .avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    margin: 0 auto 18px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(14,165,233,0.18);
+    border: 6px solid rgba(255,255,255,0.85);
+    transition: transform 300ms ease, box-shadow 300ms ease;
+  }
+  .avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+  .card:hover .avatar{ transform: translateY(-4px) scale(1.02); box-shadow: 0 14px 40px rgba(14,165,233,0.28); }
+
+  .name { font-size: 22px; font-weight: 700; margin: 6px 0 4px; }
+  .role { color: var(--muted); font-size: 14px; margin-bottom:20px; }
+
+  .btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:6px; }
+
+  .btn {
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 14px;
+    border-radius: 12px;
+    font-weight:600;
+    text-decoration:none;
+    transition: transform .18s ease, box-shadow .18s ease;
+    cursor:pointer;
+    user-select:none;
+  }
+
+  .btn:active{ transform: translateY(1px); }
+
+  .btn.call {
+    background: linear-gradient(180deg,var(--accent),var(--accent2));
+    color:#fff;
+    box-shadow: 0 8px 20px rgba(14,165,233,0.18);
+  }
+
+  .btn.wa {
+    background: #25D366; color: #fff;
+    box-shadow: 0 8px 18px rgba(37,211,102,0.12);
+  }
+
+  .btn.wechat {
+    background: #f3f4f6; color: #0f172a;
+    border: 1px solid rgba(15,23,42,0.06);
+    cursor: default;
+    opacity: 0.95;
+  }
+
+  .btn:hover.call { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(14,165,233,0.24); }
+  .btn:hover.wa { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(37,211,102,0.18); }
+  /* wechat is intentionally not linked; no hover elevation */
+
+  .icon { font-size:16px; line-height:1; }
+
+  .meta {
+    margin-top:18px;
+    color:var(--muted);
+    font-size:13px;
+  }
+
+  footer {
+    margin-top:22px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+  }
+  footer img { width:150px; display:block; height:auto; }
+  footer .brand { color:var(--muted); font-size:13px; }
+
+  /* small screens */
+  @media (max-width:420px){
+    .card{ padding:26px 18px; }
+    .avatar{ width:120px; height:120px; }
+    .btns{ gap:10px; }
+    .btn{ padding:10px 12px; font-size:14px; }
+    footer img{ width:130px; }
+  }
+</style>
+</head>
+<body>
+  <main class="card" role="main" aria-label="Визитка Dilmurod Badalov">
+    <div class="avatar" aria-hidden="true">
+      <img src="photo_2025-10-20_15-57-05.jpg" alt="Фото Dilmurod Badalov">
+    </div>
+
+    <div class="name">Dilmurod Badalov</div>
+    <div class="role">Директор по продажам — Starwood Nazarbek</div>
+
+    <div class="btns" role="group" aria-label="Контакты">
+      <a class="btn call" href="tel:+998903980010" aria-label="Позвонить Dilmurod">
+        <span class="icon">📞</span><span>Позвонить</span>
+      </a>
+
+      <!-- WhatsApp active link -->
+      <a class="btn wa" href="https://wa.me/998903980010" target="_blank" rel="noopener noreferrer" aria-label="Написать в WhatsApp">
+        <span class="icon">💬</span><span>WhatsApp</span>
+      </a>
+
+      <!-- WeChat visible but no link (user can add QR later) -->
+      <span class="btn wechat" title="WeChat: добавьте профиль/QR" aria-label="WeChat (нет ссылки)">
+        <span class="icon">🟢</span><span>WeChat</span>
+      </span>
+    </div>
+
+    <div class="meta">Тел.: +998 90 398 0010</div>
+
+    <footer>
+      <div class="brand">Starwood Nazarbek</div>
+      <img src="photo_2021-12-30_23-39-44.jpg" alt="Starwood Nazarbek Logo">
+    </footer>
+  </main>
+</body>
+</html>
