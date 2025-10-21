@@ -1,143 +1,151 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dilmurod Badalov | STW</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: "Inter", Arial, sans-serif;
-      background: linear-gradient(180deg, #d9f7e3 0%, #b5e4c7 100%);
-      color: #222;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-    .card {
-      background: rgba(255, 255, 255, 0.85);
-      border-radius: 20px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      width: 380px;
-      padding: 30px 25px;
-      text-align: center;
-      backdrop-filter: blur(10px);
-      animation: fadeIn 1s ease;
-    }
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-    img.profile {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 15px;
-      border: 4px solid #62c787;
-    }
-    h2 {
-      margin: 0;
-      font-size: 1.5em;
-      color: #1c4b2b;
-      font-weight: 700;
-    }
-    .role {
-      font-size: 1em;
-      color: #3e885b;
-      margin-bottom: 20px;
-      font-weight: 500;
-    }
-    .btns {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: #62c787;
-      color: #fff;
-      text-decoration: none;
-      padding: 10px;
-      border-radius: 12px;
-      font-weight: 600;
-      transition: all 0.25s ease;
-    }
-    .btn:hover {
-      background: #4fab6f;
-      transform: translateY(-2px);
-    }
-    .label {
-      margin-top: 18px;
-      font-size: 0.95em;
-      color: #1c4b2b;
-      font-weight: 600;
-    }
-    .footer {
-      margin-top: 22px;
-    }
-    .footer img {
-      width: 90px;
-      opacity: 0.9;
-    }
-    .meta {
-      font-size: 0.9em;
-      color: #3e885b;
-      margin-top: 10px;
-    }
-    .ico svg {
-      vertical-align: middle;
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Dilmurod Badalov — STW</title>
+<meta name="theme-color" content="#1b5e20">
+<style>
+  :root{
+    --green-1:#E8F5E9;
+    --green-2:#C8E6C9;
+    --accent:#1B5E20;
+    --muted:#6b7280;
+    --white-opa: rgba(255,255,255,0.95);
+    --card-radius:18px;
+    --maxw:520px;
+    font-family: Inter, "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0}
+  body{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:28px;
+    background: linear-gradient(180deg,var(--green-1), #DEF7DF 40%, rgba(220,245,230,0.9) 70%);
+    color:#08320b;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{width:100%;max-width:var(--maxw);position:relative;}
+  .wrap::before{
+    content:"";
+    position:absolute;
+    inset:-8%;
+    background-image:url('photo_2025-10-21_16-29-36.jpg');
+    background-repeat:no-repeat;
+    background-position:center right;
+    background-size:520px;
+    opacity:0.06;
+    filter:blur(2px) saturate(.85);
+    pointer-events:none;
+    mix-blend-mode:soft-light;
+  }
+  .card{
+    position:relative;
+    background:var(--white-opa);
+    border-radius:var(--card-radius);
+    padding:34px;
+    box-shadow:0 20px 60px rgba(8,40,20,0.08);
+    text-align:center;
+    overflow:hidden;
+    backdrop-filter:blur(6px);
+  }
+  .avatar{width:140px;height:140px;margin:0 auto 12px;border-radius:50%;overflow:hidden;border:6px solid rgba(255,255,255,0.86);box-shadow:0 12px 36px rgba(10,80,30,0.09);transition:transform .28s ease,box-shadow .28s ease;}
+  .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+  .brand{font-weight:800;color:var(--accent);letter-spacing:0.8px;font-size:13px;text-transform:uppercase;margin-bottom:6px;}
+  .name{font-size:22px;font-weight:700;color:#08320b;margin:6px 0 4px;}
+  .role{font-size:14px;color:#2e5a37;margin-bottom:8px;}
+  .loc-line{font-size:13px;color:var(--muted);font-weight:600;margin-bottom:18px;}
+  .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:6px;}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;text-decoration:none;color:#fff;font-weight:700;font-size:14px;min-width:180px;justify-content:center;transition:transform .16s ease,box-shadow .16s ease,opacity .12s;}
+  .btn:active{transform:translateY(1px)}
+  .call{background:linear-gradient(180deg,#2E7D32,#1B5E20);box-shadow:0 10px 26px rgba(30,80,40,0.12);}
+  .wa{background:#25D366;box-shadow:0 10px 26px rgba(37,211,102,0.12);}
+  .tg{background:#0088cc;box-shadow:0 10px 26px rgba(0,136,204,0.12);}
+  .wechat{background:#09b83e;box-shadow:0 10px 26px rgba(9,184,62,0.10);}
+  .inst{background:linear-gradient(45deg,#833ab4,#fd1d1d,#fcb045);box-shadow:0 10px 26px rgba(200,60,90,0.10);}
+  .map{background:linear-gradient(180deg,#43A047,#2E7D32);box-shadow:0 10px 26px rgba(30,90,50,0.12);}
+  .btn:hover{transform:translateY(-4px);opacity:0.98}
+  .ico{width:18px;height:18px;display:inline-block;flex-shrink:0}
+  .extra{margin-top:18px;display:flex;flex-direction:column;gap:8px;align-items:center}
+  .extra .label{font-size:13px;color:var(--muted);font-weight:700;letter-spacing:.3px}
+  .extra .btn{min-width:220px}
+  .footer{margin-top:22px;display:flex;flex-direction:column;align-items:center;gap:8px}
+  .footer img{width:160px;height:auto;opacity:0.98;filter:drop-shadow(0 10px 30px rgba(6,20,10,0.08))}
+  @media(max-width:520px){.btn{width:100%}.extra .btn{width:100%}.wrap::before{background-size:300px;opacity:0.06}.footer img{width:130px}}
+  /* dropdown for maps */
+  .dropdown{position:relative;display:inline-block;margin-top:14px;}
+  .dropbtn{cursor:pointer;}
+  .dropdown-content{
+    display:none;
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    background-color:#fff;
+    min-width:200px;
+    border-radius:12px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.1);
+    z-index:999;
+    text-align:left;
+    overflow:hidden;
+  }
+  .dropdown-content a{
+    color:#08320b;
+    padding:10px 14px;
+    text-decoration:none;
+    display:block;
+    font-weight:600;
+  }
+  .dropdown-content a:hover{background-color:#E8F5E9}
+  .dropdown.show .dropdown-content{display:block;}
+</style>
 </head>
 <body>
-
-  <div class="card">
-    <img src="photo_2025-10-20_15-57-05.jpg" alt="Profile" class="profile">
-    <h2>Dilmurod Badalov</h2>
-    <div class="role">Director of Sales</div>
+<div class="wrap">
+  <main class="card">
+    <div class="avatar"><img src="photo_2025-10-20_15-57-05.jpg" alt="Фото Dilmurod Badalov"></div>
+    <span class="brand">STW</span>
+    <div class="name">Dilmurod Badalov</div>
+    <div class="role">Директор по продажам</div>
 
     <div class="btns">
-      <a class="btn" href="tel:+998903980010">
-        📞 Позвонить — +998 90 398 0010
-      </a>
-      <a class="btn" href="https://wa.me/998903980010" target="_blank">
-        💬 WhatsApp
-      </a>
-      <a class="btn" href="https://t.me/+998903980010" target="_blank">
-        ✈️ Telegram
-      </a>
-      <a class="btn" href="weixin://dl/chat?Dilmurod_WeChat_ID" target="_blank">
-        💚 WeChat
-      </a>
-      <a class="btn" href="https://www.instagram.com/stw_nazarbek?igsh=MWF3Yjgzdmt5eTd1OQ==" target="_blank">
-        📸 Instagram
-      </a>
+      <a class="btn call" href="tel:+998903170010">Позвонить — +998 90 317 0010</a>
+      <a class="btn wa" href="https://wa.me/998903170010" target="_blank">WhatsApp</a>
+      <a class="btn tg" href="https://t.me/+998903170010" target="_blank">Telegram</a>
+      <button class="btn wechat" id="wechatBtn">WeChat</button>
     </div>
 
-    <div class="label">Доп. телефон</div>
-    <div class="btns">
-      <a class="btn" href="tel:+998901758880">
-        📞 Позвонить — +998 90 175 8880
-      </a>
+    <div class="extra">
+      <div class="label">Доп. телефон</div>
+      <a class="btn call" href="tel:+998901758880">Позвонить — +998 90 175 8880</a>
     </div>
-
-    <div class="btns" style="margin-top:22px;">
-      <a class="btn" href="https://maps.google.com/?q=41.321829,69.139508" target="_blank" rel="noopener noreferrer">
-        📍 STW Nazarbek
-      </a>
-    </div>
-
+    
     <div class="meta">Tashkent, Uzbekistan | Head Office</div>
+    
+    <!-- Dropdown for map links -->
+    <div class="dropdown" id="mapDrop">
+      <button class="btn map dropbtn">📍 STW Nazarbek</button>
+      <div class="dropdown-content">
+        <a href="https://maps.google.com/?q=41.321829,69.139508" target="_blank">Google Maps</a>
+        <a href="https://yandex.com/maps/?ll=69.139508%2C41.321829&z=16" target="_blank">Yandex Maps</a>
+        <a href="https://2gis.com/?query=41.321829%2C69.139508" target="_blank">2GIS</a>
+        <a href="https://maps.apple.com/?ll=41.321829,69.139508" target="_blank">Apple Maps</a>
+      </div>
+    </div>
 
-    <footer class="footer">
-      <img src="photo_2025-10-21_16-29-36.jpg" alt="STW Logo">
-    </footer>
-  </div>
+    <footer class="footer"><img src="photo_2025-10-21_16-29-36.jpg" alt="STW Logo"></footer>
+  </main>
+</div>
 
+<script>
+document.getElementById('mapDrop').addEventListener('click',function(){
+  this.classList.toggle('show');
+});
+window.addEventListener('click',function(e){
+  if(!e.target.closest('#mapDrop')) document.getElementById('mapDrop').classList.remove('show');
+});
+</script>
 </body>
 </html>
